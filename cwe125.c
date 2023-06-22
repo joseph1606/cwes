@@ -1,27 +1,37 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
+int getValueFromArray(int *array, int len, int index);
+
 int main() {
-    int size;
-    int *array;
-    int index; 
+    int numbers[] = {1, 2, 3, 4, 5};
+    int *array = numbers;
+    int len = 5;
+    int index;
     int value;
 
-    
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-    getchar();  /* Consume newline character */
-
-    array = (int*)malloc(size * sizeof(int));
-
-    printf("Enter the index to read: ");
+    printf("Enter the index: ");
     scanf("%d", &index);
-    getchar();  /* Consume newline character */
 
-    value = array[index];  /* Potential out-of-bounds read */
-    printf("Value at index %d: %d\n", index, value);
+    value = getValueFromArray(array, len, index);
 
-    free(array);
+    printf("Value is: %d\n", value);
+
+
     return 0;
+}
+
+int getValueFromArray(int *array, int len, int index) {
+    int value;
+
+    if (index < len) {
+        value = array[index];
+    } else {
+        printf("Invalid index.\n");
+        value = -1;
+    }
+
+    return value;
 }
 
