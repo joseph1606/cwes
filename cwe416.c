@@ -26,10 +26,6 @@ int main() {
     scanf("%d", &(obj2->data));
     getchar();  /* Consume newline character */
 
-
-    /* Access data from obj1 */
-    printf("Data from obj1: %d\n", obj1->data);
-
     /* Prompt the user to press enter before calling the function */
     printf("Press enter return the data: \n");
     getchar();  /* Wait for user input */
